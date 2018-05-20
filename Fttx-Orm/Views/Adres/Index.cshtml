@@ -1,0 +1,322 @@
+﻿@model IEnumerable<Fttx_Orm.Models.Adres>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Adres</h2>
+
+<p>
+    @Html.ActionLink("Adres Oluştur", "Create")
+</p>
+@*<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Cihaz.CihazName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ilce_Adi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Mahalle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cadde)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sokak)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BinaAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BinaNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AdresDetay)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KoordinatN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KoordinatS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Durum)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cihaz.CihazName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ilce_Adi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Mahalle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cadde)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sokak)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BinaAdi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BinaNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AdresDetay)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KoordinatN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KoordinatS)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Durum)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.AdresId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.AdresId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.AdresId })
+        </td>
+    </tr>
+}
+
+</table>*@
+
+<div class="loading">
+    <i class="fa fa-refresh fa-spin"></i>
+    Veriler Yükleniyor...
+</div>
+
+<link href="~/Content/jquery-ui.css" rel="stylesheet" />
+<link href="~/Content/dataTable.css" rel="stylesheet" />
+@*<link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.jqueryui.min.css">*@
+
+
+
+<table id="data" class="display" style="display:none" cellspacing="0">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Cihaz.CihazName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ilce_Adi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mahalle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cadde)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sokak)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BinaAdi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BinaNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AdresDetay)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KoordinatN)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KoordinatS)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Durum)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Cihaz.CihazName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ilce_Adi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mahalle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cadde)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sokak)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BinaAdi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BinaNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AdresDetay)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KoordinatN)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KoordinatS)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Durum)
+            </th>
+            <th></th>
+        </tr>
+    </tfoot>
+    <tbody>
+        @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cihaz.CihazName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ilce_Adi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Mahalle)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cadde)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sokak)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BinaAdi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BinaNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AdresDetay)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.KoordinatN)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.KoordinatS)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Durum)
+                </td>
+                <td>
+                    @Html.ActionLink("Düzenle", "Edit", new { id = item.AdresId }) |
+                    @Html.ActionLink("Detay", "Details", new { id = item.AdresId }) |
+                    @Html.ActionLink("Sil", "Delete", new { id = item.AdresId })
+                </td>
+            </tr>
+                        }
+    </tbody>
+</table>
+
+<script src="~/Scripts/dataTables.jqueryui.min.js"></script>
+<script src="~/Scripts/jquery.dataTables.min.js"></script>
+@*<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.16/js/dataTables.jqueryui.min.js"></script>*@
+
+
+@*<script src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.flash.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.print.min.js"></script>*@
+<script src="~/Scripts/buttons.flash.min.js"></script>
+<script src="~/Scripts/buttons.html5.min.js"></script>
+<script src="~/Scripts/buttons.print.min.js"></script>
+<script src="~/Scripts/dataTables.buttons.min.js"></script>
+<script src="~/Scripts/vhs_font.js"></script>
+<script src="~/Scripts/pdfmake.min.js"></script>
+<script src="~/Scripts/jszip.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('#data').show();
+        $(".loading").hide();
+        $('#data').DataTable({
+               "columnDefs": [{
+                "targets": [11],
+                "searchable": false,
+                "orderable": false,
+
+
+               }],
+
+               scrollY: 500,
+               scrollCollapse: true,
+               "pageLength": 25,
+
+               dom: 'Bfrtip',
+               "buttons": [
+                   {
+                       extend: 'copy',
+                       footer: false,
+                       exportOptions: {
+                           columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+                       }
+                   },
+
+                   {
+                       extend: 'csv',
+                       footer: false,
+                       exportOptions: {
+                           columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+                       }
+                   },
+
+                   {
+                       extend: 'excel',
+                       footer: false,
+                       exportOptions: {
+                           columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+                       }
+                   },
+
+                   {
+                       extend: 'pdf',
+                       footer: false,
+                       exportOptions: {
+                           columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+                       }
+                   },
+
+                   {
+                       extend: 'print',
+                       footer: false,
+                       exportOptions: {
+                           columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+                       }
+                   }
+
+               ],
+
+               "oLanguage": {
+                   "sSearch": "Bul"
+               }
+
+
+         }).column(0).search();
+
+    });
+
+</script>

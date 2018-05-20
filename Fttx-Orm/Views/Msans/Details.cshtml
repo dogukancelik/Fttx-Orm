@@ -1,0 +1,50 @@
+﻿@model Fttx_Orm.Models.Msan
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Msan Detay</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Cihaz.CihazName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cihaz.CihazName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MsanAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MsanAdi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MsanIp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MsanIp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Durum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Durum)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Düzenle", "Edit", new { id = Model.MsanId }) |
+    @Html.ActionLink("<< Geri dön", "Index")
+</p>

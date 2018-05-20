@@ -1,0 +1,199 @@
+﻿@model IEnumerable<Fttx_Orm.Models.Mudurluk>
+
+
+@*<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Bolge.BolgeAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MudurlukAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Durum)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Bolge.BolgeAdi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MudurlukAdi)
+        </td>
+        <td>
+
+            @{ if (item.Durum == true)
+                {
+                    <span style="color:chartreuse">  @Html.Raw("Aktif") </span>
+                }
+                else
+                {
+                    <span style="color:darkgrey"> @Html.Raw("Pasif")  </span>
+                }
+
+            }
+        </td>
+        <td width="100px">
+            @Html.ActionLink("Düzenle", "MudurlukDuzenle", new { id = item.MudurlukId }) |
+            @Html.ActionLink("Sil", "MudurlukSil", new { id = item.MudurlukId })
+        </td>
+    </tr>
+}
+
+</table>*@
+
+<div class="loading">
+    <i class="fa fa-refresh fa-spin"></i>
+    Veriler Yükleniyor...
+</div>
+
+<link href="~/Content/jquery-ui.css" rel="stylesheet" />
+<link href="~/Content/dataTable.css" rel="stylesheet" />
+
+<table id="data" class="display"  style="display:none" cellspacing="0">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Bolge.BolgeAdi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MudurlukAdi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Durum)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Bolge.BolgeAdi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MudurlukAdi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Durum)
+            </th>
+            <th></th>
+        </tr>
+    </tfoot>
+    <tbody>
+        @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Bolge.BolgeAdi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MudurlukAdi)
+                </td>
+                <td>
+
+                    @{ if (item.Durum == true)
+                        {
+                            <span style="color:chartreuse">  @Html.Raw("Aktif") </span>
+                        }
+                        else
+                        {
+                            <span style="color:darkgrey"> @Html.Raw("Pasif")  </span>
+                        }
+
+                    }
+                </td>
+                <td width="100px">
+                    @Html.ActionLink("Düzenle", "MudurlukDuzenle", new { id = item.MudurlukId }) |
+                    @Html.ActionLink("Sil", "MudurlukSil", new { id = item.MudurlukId })
+                </td>
+            </tr>
+           }
+    </tbody>
+</table>
+
+<script src="~/Scripts/vhs_font.js"></script>
+<script src="~/Scripts/pdfmake.min.js"></script>
+<script src="~/Scripts/jszip.min.js"></script>
+<script src="~/Scripts/jquery.dataTables.min.js"></script>
+<script src="~/Scripts/buttons.flash.min.js"></script>
+<script src="~/Scripts/buttons.html5.min.js"></script>
+<script src="~/Scripts/buttons.print.min.js"></script>
+<script src="~/Scripts/dataTables.buttons.min.js"></script>
+<script src="~/Scripts/dataTables.jqueryui.min.js"></script>
+<script>
+    $(document).ready(function () {
+
+        $('#data').show();
+        $(".loading").hide();
+          $('#data').DataTable({
+            "columnDefs": [{
+                "targets": [3],
+                "searchable": false,
+                "orderable": false,
+
+
+            }],
+              
+            scrollY: 500,
+            scrollCollapse: true,
+            "pageLength": 25,
+
+            dom: 'Bfrtip',
+            "buttons": [
+                {
+                    extend: 'copy',
+                    footer: false,
+                    exportOptions: {
+                        columns: [0, 1, 2]
+                    }
+                },
+
+                {
+                    extend: 'csv',
+                    footer: false,
+                    exportOptions: {
+                        columns: [0, 1, 2]
+                    }
+                },
+
+                {
+                    extend: 'excel',
+                    footer: false,
+                    exportOptions: {
+                        columns: [0, 1, 2]
+                    }
+                },
+
+                {
+                    extend: 'pdf',
+                    footer: false,
+                    exportOptions: {
+                        columns: [0, 1, 2]
+                    }
+                },
+
+                {
+                    extend: 'print',
+                    footer: false,
+                    exportOptions: {
+                        columns: [0, 1, 2]
+                    }
+                }
+
+            ],
+
+            "oLanguage": {
+                "sSearch": "Bul"
+            }
+
+
+        }).column(0).search();
+
+      
+      
+    });
+        
+</script>

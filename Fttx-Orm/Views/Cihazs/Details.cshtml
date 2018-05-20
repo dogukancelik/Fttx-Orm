@@ -1,0 +1,58 @@
+﻿@model Fttx_Orm.Models.Cihaz
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Cihaz Detay</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CihazMarka.MarkaAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CihazMarka.MarkaAdi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CihazTips.CihazTip)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CihazTips.CihazTip)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Proje.ProjeNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Proje.ProjeNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CihazName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CihazName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Durum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Durum)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Düzenle", "Edit", new { id = Model.CihazId }) |
+    @Html.ActionLink("<< Geri dön", "Index")
+</p>

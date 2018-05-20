@@ -1,0 +1,108 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    <link href="~/Content/SiteS.css" rel="stylesheet" />
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.6 -->
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/ionicons.min.css" rel="stylesheet" />
+    <!-- Theme style -->
+    <link rel="stylesheet" href="~/Content/AdminLTE.min.css">
+    <!-- iCheck -->
+    <link rel="stylesheet" href="~/Content/blue.css">
+</head>
+@*<body>
+    <div class="con">
+        <form method="post" action="Login">
+            <div>
+                <table>
+                    <tr>
+                        <td>Kullanıcı Adi</td>
+                        <td><input type="text" name="UserName" /></td>
+                    </tr>
+                    <tr>
+                        <td>Şire</td>
+                        <td><input type="password" name="Password" /></td>
+
+                    </tr>
+                    <tr>
+                        <td>  Beni Hatırla</td>
+                        <td><input type="checkbox" name="RememberME" /></td>
+
+                    </tr>
+                    <tr>
+                        <td><button type="submit">Giriş Yap</button></td>
+
+                    </tr>
+                </table>
+
+                </div>
+        </form>
+    </div>
+</body>*@
+<body class="hold-transition login-page">
+    <div class="login-box">
+        <div class="login-logo">
+            <a href="../../index2.html"><b>TürkTelekom</b>Fttx-Crm</a>
+        </div>
+        <!-- /.login-logo -->
+        <div class="login-box-body">
+            <p class="login-box-msg">Oturum Aç</p>
+            <form action="Login" method="post">
+                <div class="form-group has-feedback">
+                    <input type="text" name="UserName" class="form-control" placeholder="Kullanıcı adı" value="sami">
+                    <span class="glyphicon fa fa-user form-control-feedback" style="top:1px"></span>
+                </div>
+                <div class="form-group has-feedback">
+                    <input type="password" name="Password" class="form-control" placeholder="Şifre" value="123">
+                    <span class="glyphicon glyphicon-lock form-control-feedback" style="top:1px"></span>
+                </div>
+                <div class="row">
+                    <div class="col-xs-8">
+                        <div class="checkbox icheck">
+                            <label>
+                                <input type="checkbox"> Beni Hatırla
+                            </label>
+                        </div>
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-xs-4">
+                        <button type="submit" class="btn btn-primary btn-block btn-flat">Oturum Aç</button>
+                    </div>
+                    <!-- /.col -->
+                </div>
+            </form>
+            
+            <a href="#">Şifremi Unuttum</a><br>
+            @*<a href="register.html" class="text-center">Register a new membership</a>*@
+        </div>
+        <!-- /.login-box-body -->
+    </div>
+    <!-- /.login-box -->
+    <!-- jQuery 2.2.3 -->
+    <script src="~/Scripts/jquery-2.2.3.min.js"></script>
+    <!-- Bootstrap 3.3.6 -->
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <!-- iCheck -->
+    <script src="~/Scripts/icheck.min.js"></script>
+    <script>
+  $(function () {
+    $('input').iCheck({
+      checkboxClass: 'icheckbox_square-blue',
+      radioClass: 'iradio_square-blue',
+      increaseArea: '20%' // optional
+    });
+  });
+    </script>
+</body>
+</html>

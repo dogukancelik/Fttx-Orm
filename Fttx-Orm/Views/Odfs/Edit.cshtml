@@ -1,0 +1,94 @@
+﻿@model Fttx_Orm.Models.fiber.Odf
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Odf Düzenle</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.OdfId)
+
+        <div class="form-group" style="height:40px">
+            @Html.LabelFor(model => model.CatiId, "CatiId", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @*@Html.DropDownList("CatiId", null, htmlAttributes: new { @class = "form-control" })*@
+                <link rel="stylesheet" href="~/Content/dropdown.css" />
+                <script src="~/Scripts/dropdown.js" type="text/javascript"></script>
+                <div tabindex="0" class="Jdropdown" style="z-index:4">
+                    <div class="dropdown-a"></div>
+                    <span>@Model.Cati.CatiAdi.ToString()</span>
+                    <input id="CatiId" name="CatiId" type="hidden" value="@Model.Cati.CatiId.ToString()" />
+                    <input type="text" placeholder="Ara" /><i class="fa fa-search"></i>
+                    <div class="options">
+
+                        <ul>
+                            <li>-- Seçiniz ! --</li>
+                            @foreach (var item in ViewBag.CatiId)
+                            {
+                                <li id="@item.Value" onclick="gonder(@item.Value)">@item.Text</li>
+                            }
+
+                        </ul>
+                        <script>
+                            function gonder(id) {
+                                document.getElementById('CatiId').value = id;
+                            }
+
+                        </script>
+                    </div>
+                </div>
+                @Html.ValidationMessageFor(model => model.CatiId, "", new { @class = "text-danger", @style = "position:relative;top:31px;" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Kapasite, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Kapasite, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Kapasite, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.OdfAdi, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.OdfAdi, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.OdfAdi, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Durum, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.Durum)
+                    @Html.ValidationMessageFor(model => model.Durum, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Kaydet" class="btn btn-default" onclick="javascript: $(this).hide(); $('#h').css('display', 'block')" />
+                <span id="h" style="display:none; color:#666666"><i class="fa fa-refresh fa-spin"></i> &nbsp;<b>İşlem Yapılıyor ...</b></span>
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("<< Geri dön", "Index")
+</div>
+
+@*<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>*@

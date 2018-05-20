@@ -1,0 +1,40 @@
+﻿@model Fttx_Orm.Models.RoleMenu
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Rol Menü Sil</h2>
+
+<h3>Bunu Silmek İstediğinize Emin Misiniz ?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AllMenu.MenuName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AllMenu.MenuName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Role.RoleName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Role.RoleName)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Sil" class="btn btn-default" /> |
+            @Html.ActionLink("<< Geri dön", "Index")
+        </div>
+    }
+</div>

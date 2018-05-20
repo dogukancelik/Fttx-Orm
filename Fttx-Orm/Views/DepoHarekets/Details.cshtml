@@ -1,0 +1,74 @@
+﻿@model Fttx_Orm.Models.DepoHareket
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Depo Hareket Detay</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CihazID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CihazID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DepoGelis)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DepoGelis)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DepoGidis)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DepoGidis)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GelisTarihi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GelisTarihi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CikisTarihi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CikisTarihi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProjeID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProjeID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Durum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Durum)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Düzenle", "Edit", new { id = Model.DepoHareketId }) |
+    @Html.ActionLink("<< Geri dön", "Index")
+</p>

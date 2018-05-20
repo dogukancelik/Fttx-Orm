@@ -1,0 +1,42 @@
+﻿@model Fttx_Orm.Models.fiber.UcNokta
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Uç Nokta Detay</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FiberNodeBaglanti.FiberNodeBaglantiId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FiberNodeBaglanti.FiberNodeBaglantiId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Proje.ProjeNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Proje.ProjeNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UcNoktaAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UcNoktaAdi)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Düzenle", "Edit", new { id = Model.UcNoktaId }) |
+    @Html.ActionLink("<< Geri dön", "Index")
+</p>

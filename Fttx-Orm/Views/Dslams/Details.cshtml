@@ -1,0 +1,50 @@
+﻿@model Fttx_Orm.Models.Dslam
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Dslam Detay</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Cihaz.CihazName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cihaz.CihazName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DslamAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DslamAdi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DslamIp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DslamIp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Durum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Durum)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Düzenle", "Edit", new { id = Model.DslamId }) |
+    @Html.ActionLink("<< Geri dön", "Index")
+</p>

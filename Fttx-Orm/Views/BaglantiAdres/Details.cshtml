@@ -1,0 +1,50 @@
+﻿@model Fttx_Orm.Models.fiber.BaglantiAdres
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Bağlantı Adres Detay</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Baglanti.BaglantiAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Baglanti.BaglantiAdi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KoordinatN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KoordinatN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KoordinatS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KoordinatS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Adres)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Adres)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Düzenle", "Edit", new { id = Model.BaglantiAdresId }) |
+    @Html.ActionLink("<< Geri dön", "Index")
+</p>

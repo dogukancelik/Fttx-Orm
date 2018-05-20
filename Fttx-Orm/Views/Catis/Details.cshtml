@@ -1,0 +1,42 @@
+﻿@model Fttx_Orm.Models.fiber.Cati
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Çatı Detay</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Santral.SantralAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Santral.SantralAdi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CatiAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CatiAdi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Durum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Durum)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Düzenle", "Edit", new { id = Model.CatiId }) |
+    @Html.ActionLink("<< Geri dön", "Index")
+</p>

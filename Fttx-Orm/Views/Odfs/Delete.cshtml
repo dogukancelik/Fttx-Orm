@@ -1,0 +1,57 @@
+﻿@model Fttx_Orm.Models.fiber.Odf
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Odf Sil</h2>
+
+<h3>Bunu Silmek İstediğinize Emin Misiniz?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Cati.CatiAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cati.CatiAdi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Kapasite)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kapasite)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OdfAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OdfAdi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Durum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Durum)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Sil" class="btn btn-default" onclick="javascript: $(this).hide(); $('#h').css('display', 'block')" />
+            <span id="h" style="display:none; color:#666666"><i class="fa fa-refresh fa-spin"></i> &nbsp;<b>İşlem Yapılıyor ...</b></span> |
+            @Html.ActionLink("<< Geri dön", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,98 @@
+﻿
+@{
+
+    Fttx_Orm.DAL.FttxContext db = new Fttx_Orm.DAL.FttxContext();
+
+    int KID = Convert.ToInt16(HttpContext.Current.User.Identity.Name);//Convert.ToInt32(Session["Kullanici"].ToString());
+    bool roluser = db.RolUsers.Any(p => p.UserId == KID && p.RoleId == 5); //.Database.SqlQuery<int>("Select RoleId from RoleUser where KullaniciId="+KID).ToList();
+
+}
+
+
+
+@if (roluser)
+
+{
+    string url = Request.Url.ToString();
+    String[] u = url.Split(new char[] { '/' }, StringSplitOptions.RemoveEmptyEntries);
+    
+
+    <ul class="treeview-menu">
+        @foreach (var item in db.Database.SqlQuery<Fttx_Orm.Models.AllMenu>("SELECT * FROM AllMenu WHERE SubMenuId = 0 AND ActionName != 'Edit' ").ToList())
+        {
+
+            if (item.SubMenuId == 0)
+            {
+
+                <li class="@{
+                                try
+                                {
+                                    if (u[2].ToString() == item.ControlerName.ToString())
+                                    { @Html.Raw("active");
+                                    }
+                                }
+                                catch{}
+                            } ">
+                    <a href="#">
+                        <i class="fa fa-circle"></i>@item.MenuName.ToString()
+                    </a>
+                    <ul class="treeview-menu">
+                        @foreach (var items in db.Database.SqlQuery<Fttx_Orm.Models.AllMenu>("SELECT * FROM AllMenu WHERE SubMenuId =" + item.MenuId + " AND ActionName != 'Edit'").ToList())
+                        {
+                            <li class="@{try
+                                         {
+                                            if (u[3].ToString() == items.ActionName.ToString())
+                                            { @Html.Raw("active");
+                                                }
+                                            }
+                                            catch {
+                                                    if ("Index" == items.ActionName.ToString())
+                                                    { @Html.Raw("active");
+                                                        }
+                                                    }
+                                            }
+                                        } ">
+                                <a href="@Url.Action(items.ActionName, items.ControlerName)">
+                                    <i class="fa fa-circle-o"></i> @items.MenuName.ToString()
+                                </a>
+                            </li>
+    }
+                    </ul>
+                </li>
+
+            }
+
+
+        }
+    </ul>
+}
+else
+{
+    <ul class="treeview-menu">
+        @foreach (var itemzs in db.Database.SqlQuery<Fttx_Orm.Models.AllMenu>("SELECT * FROM AllMenu WHERE AllMenu.MenuId in (SELECT MenuId FROM RoleMenu WHERE RoleId IN(SELECT RoleId FROM RoleUser WHERE  UserId=" + KID + ") ) AND SubMenuId = 0 AND ActionName != 'Edit'").ToList())
+        {
+            if (itemzs.SubMenuId == 0)
+            {
+                <li>
+                    <a href="#">
+                        <i class="fa fa-circle"></i>@itemzs.MenuName.ToString()
+                    </a>
+                    <ul class="treeview-menu">
+                        @foreach (var items in db.Database.SqlQuery<Fttx_Orm.Models.AllMenu>("SELECT * FROM AllMenu WHERE AllMenu.MenuId in (SELECT MenuId FROM RoleMenu WHERE RoleId IN(SELECT RoleId FROM RoleUser WHERE UserId = '" + KID + "') ) AND SubMenuId =" + itemzs.MenuId + "AND ActionName != 'Edit'").ToList())
+                        {
+                            <li>
+                                <a href="@Url.Action(items.ActionName, items.ControlerName)">
+                                    <i class="fa fa-circle-o"></i> @items.MenuName.ToString()
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                </li>
+            }
+        }
+
+    </ul>
+
+}
+
+

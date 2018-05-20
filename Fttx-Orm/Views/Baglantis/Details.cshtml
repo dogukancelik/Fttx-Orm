@@ -1,0 +1,42 @@
+﻿@model Fttx_Orm.Models.fiber.Baglanti
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Bağlantı Detay</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Odf.OdfAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Odf.OdfAdi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BaglanitipId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BaglanitipId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BaglantiAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BaglantiAdi)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Düzenle", "Edit", new { id = Model.BaglantiId }) |
+    @Html.ActionLink("<< Geri dön", "Index")
+</p>

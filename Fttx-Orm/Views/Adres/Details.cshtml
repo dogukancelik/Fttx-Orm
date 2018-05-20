@@ -1,0 +1,106 @@
+﻿@model Fttx_Orm.Models.Adres
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Adres Detay</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Cihaz.CihazName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cihaz.CihazName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ilce_Adi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ilce_Adi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mahalle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mahalle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cadde)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cadde)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sokak)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sokak)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BinaAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BinaAdi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BinaNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BinaNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AdresDetay)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AdresDetay)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KoordinatN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KoordinatN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KoordinatS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KoordinatS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Durum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Durum)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Düzenle", "Edit", new { id = Model.AdresId }) |
+    @Html.ActionLink("<< Geri dön", "Index")
+</p>

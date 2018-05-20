@@ -1,0 +1,49 @@
+﻿@model Fttx_Orm.Models.fiber.Baglanti
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Bağlantı Sil</h2>
+
+<h3>Bunu Silmek İstediğinize Emin Misiniz ?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Odf.OdfAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Odf.OdfAdi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BaglanitipId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BaglanitipId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BaglantiAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BaglantiAdi)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Sil" class="btn btn-default" onclick="javascript: $(this).hide(); $('#h').css('display', 'block')" />
+            <span id="h" style="display:none; color:#666666"><i class="fa fa-refresh fa-spin"></i> &nbsp;<b>İşlem Yapılıyor ...</b></span> |
+            @Html.ActionLink("<< Geri dön", "Index")
+        </div>
+    }
+</div>

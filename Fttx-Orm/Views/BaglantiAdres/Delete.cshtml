@@ -1,0 +1,57 @@
+﻿@model Fttx_Orm.Models.fiber.BaglantiAdres
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Bağlantı Adres Sil</h2>
+
+<h3>Bunu Silmek İstediğinize Emin misiniz ?</h3>
+<div>
+    <h4>BaglantiAdres</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Baglanti.BaglantiAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Baglanti.BaglantiAdi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KoordinatN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KoordinatN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KoordinatS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KoordinatS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Adres)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Adres)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Sil" class="btn btn-default" /> |
+            @Html.ActionLink("<< Geri dön", "Index")
+        </div>
+    }
+</div>

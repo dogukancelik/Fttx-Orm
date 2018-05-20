@@ -1,0 +1,200 @@
+﻿@model Fttx_Orm.Models.AllMenu
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    string[] actions = new string[5];
+    actions[0] = "Index";
+    actions[1] = "Create";
+    actions[2] = "Delete";
+    actions[3] = "Detail";
+    actions[4] = "Edit";
+}
+
+<h2>Tüm Menüler</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group" style="height:40px">
+            @Html.LabelFor(model => model.SubMenuId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10" >
+                @*@Html.EditorFor(model => model.SubMenuId, new { htmlAttributes = new { @class = "form-control" } })*@
+                <link rel="stylesheet" href="~/Content/dropdown.css" />
+                <script src="~/Scripts/dropdown.js" type="text/javascript"></script>
+                <div tabindex="0" class="Jdropdown" style="z-index:4;">
+                    <div class="dropdown-a"></div>
+                    <span>-- Seçiniz ! --</span>
+
+                    <input id="SubMenuId" name="SubMenuId" type="hidden" value="" data-val-required="CihazId alanı gereklidir."/>
+                    <input type="text" placeholder="Ara" /><i class="fa fa-search"></i>
+                    <div class="options">
+
+                        <ul>
+                            <li>-- Seçiniz ! --</li>
+                            @foreach (var item in ViewBag.SubMenuId)
+                            {
+                                <li id="@item.Value" onclick="gonder(@item.Value)">@item.Text</li>
+                            }
+
+                        </ul>
+                        <script>
+                            function gonder(id) {
+                                document.getElementById('SubMenuId').value = id;
+                            }
+
+                        </script>
+                    </div>
+                </div>
+                @Html.ValidationMessageFor(model => model.SubMenuId, "", new { @class = "text-danger", @style = "position:relative;top:31px;" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MenuName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MenuName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MenuName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group" style="height:40px">
+            @Html.LabelFor(model => model.ControlerName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @*@Html.EditorFor(model => model.ControlerName, new { htmlAttributes = new { @class = "form-control" } })*@
+                <div tabindex="0" class="Jdropdown" style="z-index:2;">
+                    <div class="dropdown-a"></div>
+                    <span>-- Seçiniz ! --</span>
+
+                    <input id="ControlerName" name="ControlerName" type="hidden" value="" />
+                    <input type="text" placeholder="Ara" /><i class="fa fa-search"></i>
+                    <div class="options">
+
+                        <ul>
+                            <li onclick="none('#ActionNameOP')">-- Seçiniz ! --</li>
+                            @foreach (var item in ViewBag.ControlerName)
+                            {
+                               
+                                 <li id="@item" onclick="gonder3('@item.ToString()')">@item</li>
+                            }
+
+                        </ul>
+                        <script>
+                            var actionNames = GetData("getActions", "AllMenus");
+
+                            function gonder3(id) {
+                                $("#ActionNameOP").html("<li>-- Seçiniz ! --</li>");
+                                document.getElementById('ControlerName').value = id;
+                       
+                                var ac = [];
+                                for (var i = 0; i < actionNames.length; i++) {
+                                    if (actionNames[i][0] == document.getElementById('ControlerName').value) {
+                                        ac.push(actionNames[i][1]);
+                                    }
+                                }
+                                
+                                var actions = ["Index", "Create", "Delete", "Detail", "Edit"];
+                                
+                                for (var i = 0; i < actions.length; i++) {
+                                    var c=0;
+                                    for (var j = 0; j < ac.length; j++) {
+                                        if (actions[i] == ac[j]) {
+                                            c++;
+                                            break;
+                                        }
+                                    }
+
+                                    if (c == 0) {
+                                        $("#ActionNameOP").append("<li id='" + actions[i] + "' onclick='gonder4(\"" + actions[i] + "\")'>" + actions[i] + "</li>");
+                                    }
+                                    
+                                }
+
+                            }
+
+                            function GetData(action, controler) {
+                                var a = new Array();
+                                $.ajax({
+                                    url: "/" + controler + "/" + action,
+                                    type: "get",
+                                    dataType: "json",
+                                    data: "{param}",
+                                    async: false,
+                                    processData: false,
+                                    cache: false,
+                                    success: function (resp) {
+                                        $.each(resp, function (index, value) {
+                                            a.push([value["Text"], value["Value"]]);
+
+                                        });
+                                        
+                                    }
+
+                                });
+                                return a;
+                            }
+
+                            function none(s) {
+                                $(s).html("<li>-- Seçiniz ! --</li>");
+                            }
+                    </script>
+                    </div>
+                </div>
+                @Html.ValidationMessageFor(model => model.ControlerName, "", new { @class = "text-danger", @style = "position:relative;top:31px;" })
+            </div>
+        </div>
+
+        <div class="form-group" style="height:40px">
+            @Html.LabelFor(model => model.ActionName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @*@Html.EditorFor(model => model.ActionName, new { htmlAttributes = new { @class = "form-control" } })*@
+                <div tabindex="0" class="Jdropdown" style="z-index:1;" id='z'>
+                    <div class="dropdown-a"></div>
+                    <span>-- Seçiniz ! --</span>
+
+                    <input id="ActionName" name="ActionName" type="hidden" value=""/>
+                    <input type="text" placeholder="Ara" /><i class="fa fa-search"></i>
+                    <div class="options">
+
+                        <ul id="ActionNameOP">
+                            <li>-- Seçiniz ! --</li>
+                            @*@foreach (var item in ViewBag.getAll)
+                            {
+                                <li id="@item.Value.ToString()" onclick="gonder4('@item.ToString()')">@item.Value.ToString()</li>
+                            }*@
+
+                        </ul>
+                        <script>
+                            function gonder4(id) {
+                                document.getElementById('ActionName').value = id;
+                                $("#z").children('span:first').text($("#" + id).text());
+                                $("#z").blur();
+                            }
+
+                            
+
+                            
+                        </script>
+                    </div>
+                </div>
+                @Html.ValidationMessageFor(model => model.ActionName, "", new { @class = "text-danger", @style = "position:relative;top:31px;" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Oluştur" class="btn btn-default" onclick="javascript: $(this).hide(); $('#h').css('display', 'block')" />
+                <span id="h" style="display:none; color:#666666"><i class="fa fa-refresh fa-spin"></i> &nbsp;<b>İşlem Yapılıyor ...</b></span>
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("<< Geri dön", "Index")
+</div>

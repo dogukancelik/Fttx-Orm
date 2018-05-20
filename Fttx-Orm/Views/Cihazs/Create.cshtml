@@ -1,0 +1,141 @@
+﻿@model Fttx_Orm.Models.Cihaz
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Cihaz Oluştur</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.CihazName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CihazName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CihazName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group" style="height:40px">
+            @Html.LabelFor(model => model.CihazTipsId, "CihazTipsId", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @*@Html.DropDownList("CihazTipsId", null, htmlAttributes: new { @class = "form-control" })*@
+                <link rel="stylesheet" href="~/Content/dropdown.css" />
+                <script src="~/Scripts/dropdown.js" type="text/javascript"></script>
+                <div tabindex="0" class="Jdropdown" style="z-index:4">
+                    <div class="dropdown-a"></div>
+                    <span>-- Seçiniz ! --</span>
+                    <input id="CihazTipsId" name="CihazTipsId" type="hidden" value="" />
+                    <input type="text" placeholder="Ara" /><i class="fa fa-search"></i>
+                    <div class="options">
+
+                        <ul>
+                            <li>-- Seçiniz ! --</li>
+                            @foreach (var item in ViewBag.CihazTipsId)
+                            {
+                                <li id="@item.Value" onclick="gonder(@item.Value)">@item.Text</li>
+                            }
+
+                        </ul>
+                        <script>
+                            function gonder(id) {
+                                document.getElementById('CihazTipsId').value = id;
+                            }
+
+                       </script>
+                    </div>
+                </div>
+                @Html.ValidationMessageFor(model => model.CihazTipsId, "", new { @class = "text-danger", @style="position:relative;top:31px;" })
+            </div>
+        </div>
+
+        <div class="form-group" style="height:40px">
+            @Html.LabelFor(model => model.ProjeId, "ProjeId", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @*@Html.DropDownList("ProjeId", null, htmlAttributes: new { @class = "form-control" })*@
+                <div tabindex="0" class="Jdropdown" style="z-index:3">
+                    <div class="dropdown-a"></div>
+                    <span>-- Seçiniz ! --</span>
+                    <input id="ProjeId" name="ProjeId" type="hidden" value="" />
+                    <input type="text" placeholder="Ara" /><i class="fa fa-search"></i>
+                    <div class="options">
+
+                        <ul>
+                            <li>-- Seçiniz ! --</li>
+                            @foreach (var item in ViewBag.ProjeId)
+                            {
+                                <li id="@item.Value" onclick="gonder2(@item.Value)">@item.Text</li>
+                            }
+
+                        </ul>
+                        <script>
+                            function gonder2(id) {
+                                document.getElementById('ProjeId').value = id;
+                            }
+
+                        </script>
+                    </div>
+                </div>
+                @Html.ValidationMessageFor(model => model.ProjeId, "", new { @class = "text-danger", @style="position:relative;top:31px;" })
+            </div>
+        </div>
+
+        <div class="form-group" style="height:40px">
+            @Html.LabelFor(model => model.CihazMarkaId, "CihazMarkaId", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @*@Html.DropDownList("CihazMarkaId", null, htmlAttributes: new { @class = "form-control" })*@
+                <div tabindex="0" class="Jdropdown">
+                    <div class="dropdown-a"></div>
+                    <span>-- Seçiniz ! --</span>
+                    <input id="CihazMarkaId" name="CihazMarkaId" type="hidden" value="" />
+                    <input type="text" placeholder="Ara" /><i class="fa fa-search"></i>
+                    <div class="options">
+
+                        <ul>
+                            <li>-- Seçiniz ! --</li>
+                            @foreach (var item in ViewBag.CihazMarkaId)
+                            {
+                                <li id="@item.Value" onclick="gonder3(@item.Value)">@item.Text</li>
+                            }
+
+                        </ul>
+                        <script>
+                            function gonder3(id) {
+                                document.getElementById('CihazMarkaId').value = id;
+                            }
+
+                        </script>
+                    </div>
+                </div>
+                @Html.ValidationMessageFor(model => model.CihazMarkaId, "", new { @class = "text-danger", @style="position:relative;top:31px;" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Durum, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.Durum)
+                    @Html.ValidationMessageFor(model => model.Durum, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Oluştur" class="btn btn-default" onclick="javascript: $(this).hide(); $('#h').css('display', 'block')" />
+                <span id="h" style="display:none; color:#666666"><i class="fa fa-refresh fa-spin"></i> &nbsp;<b>İşlem Yapılıyor ...</b></span>
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("<< Geri dön", "Index")
+</div>

@@ -1,0 +1,58 @@
+﻿@model Fttx_Orm.Models.fiber.BaglantiKapasite
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Bağlantı Kapasite Detay</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BağlantiId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BağlantiId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GirisKapasite)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GirisKapasite)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CikisKapasite)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CikisKapasite)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KullanilanDevre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KullanilanDevre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BosDevre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BosDevre)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Düzenle", "Edit", new { id = Model.BaglantiKapasiteId }) |
+    @Html.ActionLink("<< Geri dön", "Index")
+</p>

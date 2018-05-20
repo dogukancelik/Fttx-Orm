@@ -1,0 +1,161 @@
+﻿@model IEnumerable<Fttx_Orm.Models.CihazMarka>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Cihaz Marka</h2>
+
+<p>
+    @Html.ActionLink("Cihaz Marka Oluştur", "Create")
+</p>
+@*<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MarkaAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Durum)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MarkaAdi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Durum)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CihazMarkaId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CihazMarkaId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CihazMarkaId })
+        </td>
+    </tr>
+}
+
+</table>*@
+
+<div class="loading">
+    <i class="fa fa-refresh fa-spin"></i>
+    Veriler Yükleniyor...
+</div>
+
+<link href="~/Content/jquery-ui.css" rel="stylesheet" />
+<link href="~/Content/dataTable.css" rel="stylesheet" />
+
+<table id="data" class="display" style="display:none" cellspacing="0">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.MarkaAdi)</th>
+            <th>@Html.DisplayNameFor(model => model.Durum)</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.MarkaAdi)</th>
+            <th>@Html.DisplayNameFor(model => model.Durum)</th>
+            <th></th>
+        </tr>
+    </tfoot>
+    <tbody>
+        @foreach (var item in Model)
+            {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.MarkaAdi)</td>
+                <td>@Html.DisplayFor(modelItem => item.Durum)</td>
+                <td>
+                    @Html.ActionLink("Düzenle", "Edit", new { id = item.CihazMarkaId }) |
+                    @Html.ActionLink("Detay", "Details", new { id = item.CihazMarkaId }) |
+                    @Html.ActionLink("Sil", "Delete", new { id = item.CihazMarkaId })
+                </td>
+            </tr>
+                        }
+    </tbody>
+</table>
+
+<script src="~/Scripts/vhs_font.js"></script>
+<script src="~/Scripts/pdfmake.min.js"></script>
+<script src="~/Scripts/jszip.min.js"></script>
+<script src="~/Scripts/jquery.dataTables.min.js"></script>
+<script src="~/Scripts/buttons.flash.min.js"></script>
+<script src="~/Scripts/buttons.html5.min.js"></script>
+<script src="~/Scripts/buttons.print.min.js"></script>
+<script src="~/Scripts/dataTables.buttons.min.js"></script>
+<script src="~/Scripts/dataTables.jqueryui.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#data').show();
+        $(".loading").hide();
+        $('#data').DataTable({
+            "columnDefs": [{
+                "targets": [2],
+                "searchable": false,
+                "orderable": false,
+
+
+            }],
+
+            scrollY: 500,
+            scrollCollapse: true,
+            "pageLength": 25,
+
+            dom: 'Bfrtip',
+            "buttons": [
+                {
+                    extend: 'copy',
+                    footer: false,
+                    exportOptions: {
+                        columns: [0, 1]
+                    }
+                },
+
+                {
+                    extend: 'csv',
+                    footer: false,
+                    exportOptions: {
+                        columns: [0, 1]
+                    }
+                },
+
+                {
+                    extend: 'excel',
+                    footer: false,
+                    exportOptions: {
+                        columns: [0, 1]
+                    }
+                },
+
+                {
+                    extend: 'pdf',
+                    footer: false,
+                    exportOptions: {
+                        columns: [0, 1]
+                    }
+                },
+
+                {
+                    extend: 'print',
+                    footer: false,
+                    exportOptions: {
+                        columns: [0, 1]
+                    }
+                }
+
+            ],
+
+            "oLanguage": {
+                "sSearch": "Bul"
+            }
+
+
+        }).column(0).search();
+
+    });
+
+
+</script>

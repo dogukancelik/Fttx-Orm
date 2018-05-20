@@ -1,0 +1,34 @@
+﻿@model Fttx_Orm.Models.CihazTips
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Cihaz Tip Detay</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CihazTip)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CihazTip)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Durum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Durum)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Düzenle", "Edit", new { id = Model.CihazTipsId }) |
+    @Html.ActionLink("<< Geri dön", "Index")
+</p>

@@ -1,0 +1,58 @@
+﻿@model Fttx_Orm.Models.fiber.FiberNodeBaglanti
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Fiber Node Bağlantı Detay</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FiberNodeBaglantiId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FiberNodeBaglantiId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BaglantiNode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BaglantiNode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GirisDevre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GirisDevre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BaglantiGirisNode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BaglantiGirisNode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BaglantiGirisNodeDevre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BaglantiGirisNodeDevre)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Düzenle", "Edit", new { id = Model.FiberNodeBaglantiId }) |
+    @Html.ActionLink("<< Geri dön", "Index")
+</p>

@@ -1,0 +1,34 @@
+﻿@model Fttx_Orm.Models.Depo
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Depo Detay</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DepoAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DepoAdi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Durum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Durum)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Düzenle", "Edit", new { id = Model.DepoId }) |
+    @Html.ActionLink("<< Geri dön", "Index")
+</p>

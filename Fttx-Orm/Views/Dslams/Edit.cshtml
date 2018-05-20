@@ -1,0 +1,95 @@
+﻿@model Fttx_Orm.Models.Dslam
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Dslam Düzenle</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.DslamId)
+
+        <div class="form-group" style="height:40px">
+            @Html.LabelFor(model => model.CihazId, "CihazId", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @*@Html.DropDownList("CihazId", null, htmlAttributes: new { @class = "form-control" })*@
+                <link rel="stylesheet" href="~/Content/dropdown.css" />
+                <script src="~/Scripts/dropdown.js" type="text/javascript"></script>
+
+                <div tabindex="0" class="Jdropdown">
+                    <div class="dropdown-a"></div>
+                   @if (Model.DslamId.ToString()==null)
+                   {
+                     <span>-- Seçiniz ! -- </span>
+                   }
+                   else
+                   { <span>@Model.Cihaz.CihazName.ToString() </span> }
+                    <input id="CihazId" name="CihazId" type="hidden" value="@Model.Cihaz.CihazId.ToString()" />
+                    <input type="text" placeholder="Ara" /><i class="fa fa-search"></i>
+                    <div class="options">
+
+                        <ul>
+                            <li id="">-- Seçiniz ! --</li>
+                            @foreach (var item in ViewBag.CihazId)
+                            {
+                                <li id="@item.Value" onclick="gonder(@item.Value)">@item.Text</li>
+                            }
+
+                        </ul>
+                        <script>
+                            function gonder(id) {
+                                document.getElementById('CihazId').value = id;
+                            }
+
+                        </script>
+                    </div>
+                </div>
+                @Html.ValidationMessageFor(model => model.CihazId, "", new { @class = "text-danger", @style="position:relative;top:31px;" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DslamAdi, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DslamAdi, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DslamAdi, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DslamIp, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DslamIp, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DslamIp, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Durum, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.Durum)
+                    @Html.ValidationMessageFor(model => model.Durum, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Kaydet" class="btn btn-default" onclick="javascript: $(this).hide(); $('#h').css('display', 'block')" />
+                <span id="h" style="display:none; color:#666666"><i class="fa fa-refresh fa-spin"></i> &nbsp;<b>İşlem Yapılıyor ...</b></span>
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("<< Geri dön", "Index")
+</div>

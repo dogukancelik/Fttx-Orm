@@ -1,0 +1,218 @@
+﻿@model IEnumerable<Fttx_Orm.Models.fiber.FiberNodeBaglanti>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Fiber Node Bağlantı Liste</h2>
+
+<p>
+    @Html.ActionLink("Fiber Node Bağlantı Oluştur", "Create")
+</p>
+@*<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FiberNodeBaglantiId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BaglantiNode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GirisDevre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BaglantiGirisNode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BaglantiGirisNodeDevre)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FiberNodeBaglantiId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BaglantiNode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GirisDevre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BaglantiGirisNode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BaglantiGirisNodeDevre)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.FiberNodeBaglantiId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.FiberNodeBaglantiId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.FiberNodeBaglantiId })
+        </td>
+    </tr>
+}
+
+</table>*@
+<div class="loading">
+    <i class="fa fa-refresh fa-spin"></i>
+    Veriler Yükleniyor...
+</div>
+
+<link href="~/Content/jquery-ui.css" rel="stylesheet" />
+<link href="~/Content/dataTable.css" rel="stylesheet" />
+
+<table id="data" class="display" style="display:none" cellspacing="0">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FiberNodeBaglantiId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BaglantiNode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GirisDevre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BaglantiGirisNode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BaglantiGirisNodeDevre)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FiberNodeBaglantiId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BaglantiNode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GirisDevre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BaglantiGirisNode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BaglantiGirisNodeDevre)
+            </th>
+            <th></th>
+        </tr>
+    </tfoot>
+    <tbody>
+        @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FiberNodeBaglantiId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BaglantiNode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GirisDevre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BaglantiGirisNode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BaglantiGirisNodeDevre)
+                </td>
+                <td>
+                    @Html.ActionLink("Düzenle", "Edit", new { id = item.FiberNodeBaglantiId }) |
+                    @Html.ActionLink("Detay", "Details", new { id = item.FiberNodeBaglantiId }) |
+                    @Html.ActionLink("Sil", "Delete", new { id = item.FiberNodeBaglantiId })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script src="~/Scripts/vhs_font.js"></script>
+<script src="~/Scripts/pdfmake.min.js"></script>
+<script src="~/Scripts/jszip.min.js"></script>
+<script src="~/Scripts/jquery.dataTables.min.js"></script>
+<script src="~/Scripts/buttons.flash.min.js"></script>
+<script src="~/Scripts/buttons.html5.min.js"></script>
+<script src="~/Scripts/buttons.print.min.js"></script>
+<script src="~/Scripts/dataTables.buttons.min.js"></script>
+<script src="~/Scripts/dataTables.jqueryui.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#data').show();
+        $(".loading").hide();
+        $('#data').DataTable({
+            "columnDefs": [{
+                "targets": [5],
+                "searchable": false,
+                "orderable": false,
+
+
+            }],
+
+            scrollY: 500,
+            scrollCollapse: true,
+            "pageLength": 25,
+
+            dom: 'Bfrtip',
+            "buttons": [
+                {
+                    extend: 'copy',
+                    footer: false,
+                    exportOptions: {
+                        columns: [0, 1, 2, 3, 4]
+                    }
+                },
+
+                {
+                    extend: 'csv',
+                    footer: false,
+                    exportOptions: {
+                        columns: [0, 1, 2, 3, 4]
+                    }
+                },
+
+                {
+                    extend: 'excel',
+                    footer: false,
+                    exportOptions: {
+                        columns: [0, 1, 2, 3, 4]
+                    }
+                },
+
+                {
+                    extend: 'pdf',
+                    footer: false,
+                    exportOptions: {
+                        columns: [0, 1, 2, 3, 4]
+                    }
+                },
+
+                {
+                    extend: 'print',
+                    footer: false,
+                    exportOptions: {
+                        columns: [0, 1, 2, 3, 4]
+                    }
+                }
+
+            ],
+
+            "oLanguage": {
+                "sSearch": "Bul"
+            }
+
+
+        }).column(0).search();
+
+    });
+
+
+</script>
+
