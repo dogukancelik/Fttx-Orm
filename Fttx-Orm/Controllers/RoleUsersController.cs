@@ -39,6 +39,7 @@ namespace Fttx_Orm.Controllers
         }
 
         // GET: RoleUsers/Create
+        [HttpGet]
         public ActionResult Create()
         {
             ViewBag.RoleId = new SelectList(db.Roles, "RoleId", "RoleName");
@@ -86,7 +87,7 @@ namespace Fttx_Orm.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "RoleUserId,KullaniciId,RoleId")] RoleUser roleUser)
+        public async Task<ActionResult> Edit([Bind(Include = "RoleUserId,UserId,RoleId")] RoleUser roleUser)
         {
             if (ModelState.IsValid)
             {
@@ -94,7 +95,7 @@ namespace Fttx_Orm.Controllers
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            ViewBag.RoleId = new SelectList(db.Roles, "RoleId", "RoleName", roleUser.RoleId);
+            ViewBag.RoleId = new SelectList(db.Roles, "RoleId", "RoleName", roleUser.RoleId); 
             return View(roleUser);
         }
 
