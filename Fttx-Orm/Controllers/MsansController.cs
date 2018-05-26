@@ -39,6 +39,7 @@ namespace Fttx_Orm.Controllers
         }
 
         // GET: Msans/Create
+        [HttpGet]
         public ActionResult Create()
         {
            
@@ -61,7 +62,7 @@ namespace Fttx_Orm.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.CihazId = new SelectList(db.Database.SqlQuery<Fttx_Orm.Models.Cihaz>("select * from Cihaz where CihazId not in (select CihazId from Adres where Durum=1) and Durum=1").ToList(), "CihazId", "CihazName",msan.CihazId);
+            ViewBag.CihazId = new SelectList(db.Database.SqlQuery<Fttx_Orm.Models.Cihaz>("select * from Cihaz where CihazId not in (select CihazId from Msan where Durum=1) and Durum=1").ToList(), "CihazId", "CihazName",msan.CihazId);
 
             return View(msan);
         }

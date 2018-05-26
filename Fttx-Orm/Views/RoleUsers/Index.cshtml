@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Rol</h2>
+<h2>Rol Listele</h2>
 
 <p>
     @Html.ActionLink("Rol Ata", "Create")
@@ -68,7 +68,7 @@
             {
             <tr>
                 <td>@Html.DisplayFor(modelItem => item.Role.RoleName)</td>
-                <td>@Html.DisplayFor(modelItem => item.UserId)</td>
+                <td>@Html.DisplayFor(modelItem => item.Kullanici.UserName)</td>
                 <td>
                     @Html.ActionLink("Düzenle", "Edit", new { id = item.RoleUserId }) |
                     @Html.ActionLink("Detay", "Details", new { id = item.RoleUserId }) |
