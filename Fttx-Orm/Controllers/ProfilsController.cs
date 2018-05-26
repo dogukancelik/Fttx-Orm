@@ -64,7 +64,7 @@ namespace Fttx_Orm.Controllers
         }
 
         // GET: Profils/Edit/5
-        public async Task<ActionResult> ProfileEdit(int? id)
+        public async Task<ActionResult> Edit(int? id)
         {
             if (id == null)
             {
@@ -84,7 +84,7 @@ namespace Fttx_Orm.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> ProfileEdit([Bind(Include = "ProfilId,UserId,Adi,Soyadi,Email,Tel")] Profil profil)
+        public async Task<ActionResult> Edit([Bind(Include = "ProfilId,UserId,Adi,Soyadi,Email,Tel")] Profil profil)
         {
             if (ModelState.IsValid)
             {

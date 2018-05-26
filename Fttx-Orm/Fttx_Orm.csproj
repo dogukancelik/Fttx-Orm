@@ -367,7 +367,7 @@
     <Content Include="Views\Profils\Create.cshtml" />
     <Content Include="Views\Profils\Delete.cshtml" />
     <Content Include="Views\Profils\Details.cshtml" />
-    <Content Include="Views\Profils\ProfileEdit.cshtml" />
+    <Content Include="Views\Profils\Edit.cshtml" />
     <Content Include="Views\Profils\Index.cshtml" />
     <Content Include="Views\Catis\Create.cshtml" />
     <Content Include="Views\Catis\Delete.cshtml" />

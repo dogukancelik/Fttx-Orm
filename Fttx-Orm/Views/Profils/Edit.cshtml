@@ -75,10 +75,9 @@
                     <tr>
                         <td>@Html.DisplayNameFor(model => model.kullanici.UserName): </td>
                         <td style="color:#cccccc;">
-                            @if (Session["User"] != null)
-                            {
-                                @Session["User"].ToString()
-                            }
+                           
+                          @Model.kullanici.UserName
+                            
                         </td>
                     </tr>
                     <tr>
