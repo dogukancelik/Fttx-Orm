@@ -37,15 +37,22 @@
 
                         <ul>
                             <li>-- Seçiniz ! --</li>
+                            <li id="0" onclick="gonder(0)" >Main Menu</li>
                             @foreach (var item in ViewBag.SubMenuId)
                             {
-                                <li id="@item.Value" onclick="gonder(@item.Value)">@item.Text</li>
+                               
+                                 <li id="@item.Value" onclick="gonder(@item.Value)">@item.Text</li>
                             }
 
                         </ul>
                         <script>
                             function gonder(id) {
                                 document.getElementById('SubMenuId').value = id;
+                                if (id == 0) {
+                                    $('#00').text("-- Seçiniz ! --");
+                                 
+                                }
+                             
                             }
 
                         </script>
@@ -88,7 +95,10 @@
                             var actionNames = GetData("getActions", "AllMenus");
 
                             function gonder3(id) {
-                                $("#ActionNameOP").html("<li>-- Seçiniz ! --</li>");
+                                none('#ActionNameOP');
+                               
+                               
+                               
                                 document.getElementById('ControlerName').value = id;
                        
                                 var ac = [];
@@ -97,9 +107,13 @@
                                         ac.push(actionNames[i][1]);
                                     }
                                 }
-                                
-                                var actions = ["Index", "Create", "Delete", "Detail", "Edit"];
-                                
+                                var b = $('#SubMenuId').val();
+                                if (b == 0) {
+                                    var actions = ["-"];
+                                }else
+                                {
+                                    var actions = ["Index", "Create", "Delete", "Detail", "Edit"];}
+                            
                                 for (var i = 0; i < actions.length; i++) {
                                     var c=0;
                                     for (var j = 0; j < ac.length; j++) {
@@ -140,7 +154,8 @@
                             }
 
                             function none(s) {
-                                $(s).html("<li>-- Seçiniz ! --</li>");
+                                $(s).html("");
+                              $(s).append("<li>-- Seçiniz ! --</li>");
                             }
                     </script>
                     </div>
@@ -155,14 +170,14 @@
                 @*@Html.EditorFor(model => model.ActionName, new { htmlAttributes = new { @class = "form-control" } })*@
                 <div tabindex="0" class="Jdropdown" style="z-index:1;" id='z'>
                     <div class="dropdown-a"></div>
-                    <span>-- Seçiniz ! --</span>
+                    <span id="00">-- Seçiniz ! --</span>
 
                     <input id="ActionName" name="ActionName" type="hidden" value=""/>
                     <input type="text" placeholder="Ara" /><i class="fa fa-search"></i>
                     <div class="options">
 
                         <ul id="ActionNameOP">
-                            <li>-- Seçiniz ! --</li>
+                            <li onclick="none('#ActionNameOP')">-- Seçiniz ! --</li>
                             @*@foreach (var item in ViewBag.getAll)
                             {
                                 <li id="@item.Value.ToString()" onclick="gonder4('@item.ToString()')">@item.Value.ToString()</li>

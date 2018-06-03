@@ -1,6 +1,6 @@
 $(document).ready(function () {
     $(".Jdropdown").each(function () {
-        $(this).children(".options").children("ul").children("li:first-child").attr("onclick", "gonder('')");
+    //    $(this).children(".options").children("ul").children("li:first-child").attr("onclick", "gonder('')");
     });
 
 	$(".Jdropdown ul li").click(function(){
