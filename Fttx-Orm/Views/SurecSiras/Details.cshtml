@@ -1,0 +1,51 @@
+﻿@model Fttx_Orm.Models.Process.SurecSira
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>SurecSira</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ProjeId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProjeId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SurecId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SurecId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sira)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sira)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Durum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Durum)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SurecSiraId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

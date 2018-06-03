@@ -59,5 +59,17 @@ namespace Fttx_Orm.DAL
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
         }
+
+        public System.Data.Entity.DbSet<Fttx_Orm.Models.Process.Is> Iss { get; set; }
+
+        public System.Data.Entity.DbSet<Fttx_Orm.Models.Process.Surec> Surecs { get; set; }
+
+        public System.Data.Entity.DbSet<Fttx_Orm.Models.Process.IsPlanTarih> IsPlanTarihs { get; set; }
+
+        public System.Data.Entity.DbSet<Fttx_Orm.Models.Process.SurecHareket> SurecHarekets { get; set; }
+
+        public System.Data.Entity.DbSet<Fttx_Orm.Models.Process.SurecIsTablosu> SurecIsTablosus { get; set; }
+
+        public System.Data.Entity.DbSet<Fttx_Orm.Models.Process.SurecSira> SurecSiras { get; set; }
     }
 }

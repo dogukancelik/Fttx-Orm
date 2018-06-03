@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Fttx_Orm.Models.Process.SurecSira>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ProjeId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SurecId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sira)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Durum)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProjeId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SurecId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sira)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Durum)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.SurecSiraId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.SurecSiraId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.SurecSiraId })
+        </td>
+    </tr>
+}
+
+</table>

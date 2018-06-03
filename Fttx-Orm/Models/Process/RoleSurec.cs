@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Fttx_Orm.Models
+namespace Fttx_Orm.Models.Process
 {
-    public class Surec_Is_Tablosu
+    class RoleSurec
     {
-        public int SurecIs_Id { get; set; }
-        public int Is_Id { get; set; }
+        public int RoleSurecId { get; set; }
+        public int RoleId { get; set; }
         public int SurecId { get; set; }
+        public int IsId { get; set; }
     }
 }

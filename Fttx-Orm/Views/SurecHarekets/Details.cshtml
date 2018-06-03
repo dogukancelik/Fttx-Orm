@@ -1,0 +1,51 @@
+﻿@model Fttx_Orm.Models.Process.SurecHareket
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>SurecHareket</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ProjeId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProjeId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GelisTarih)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GelisTarih)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GidisTarih)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GidisTarih)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserId)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SurecHareketId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

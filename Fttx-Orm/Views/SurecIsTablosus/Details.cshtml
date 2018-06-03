@@ -1,0 +1,35 @@
+﻿@model Fttx_Orm.Models.Process.SurecIsTablosu
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>SurecIsTablosu</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IsId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SurecId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SurecId)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SurecIsTablosuId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
