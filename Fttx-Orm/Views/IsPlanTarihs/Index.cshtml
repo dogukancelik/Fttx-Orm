@@ -5,12 +5,12 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>İş Plan Tarihi Listele</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("İş Plan Tarihi Oluştur", "Create")
 </p>
-<table class="table">
+@*<table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.IsId)
@@ -49,4 +49,155 @@
     </tr>
 }
 
+</table>*@
+
+<div class="loading">
+    <i class="fa fa-refresh fa-spin"></i>
+    Veriler Yükleniyor...
+</div>
+
+<link href="~/Content/jquery-ui.css" rel="stylesheet" />
+<link href="~/Content/dataTable.css" rel="stylesheet" />
+
+<table id="data" class="display" style="display:none" cellspacing="0">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IsId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BaslangicTarih)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BitisTarih)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SurecId)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IsId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BaslangicTarih)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BitisTarih)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SurecId)
+            </th>
+            <th></th>
+        </tr>
+    </tfoot>
+    <tbody>
+        @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BaslangicTarih)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BitisTarih)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SurecId)
+                </td>
+                <td>
+                    @Html.ActionLink("Düzenle", "Edit", new { id = item.IsPlanTarihId }) |
+                    @Html.ActionLink("Detay", "Details", new { id = item.IsPlanTarihId }) |
+                    @Html.ActionLink("Sil", "Delete", new { id = item.IsPlanTarihId })
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>
+
+<script src="~/Scripts/vhs_font.js"></script>
+<script src="~/Scripts/pdfmake.min.js"></script>
+<script src="~/Scripts/jszip.min.js"></script>
+<script src="~/Scripts/jquery.dataTables.min.js"></script>
+<script src="~/Scripts/buttons.flash.min.js"></script>
+<script src="~/Scripts/buttons.html5.min.js"></script>
+<script src="~/Scripts/buttons.print.min.js"></script>
+<script src="~/Scripts/dataTables.buttons.min.js"></script>
+<script src="~/Scripts/dataTables.jqueryui.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#data").show();
+        $(".loading").hide();
+        $('#data').DataTable({
+            "columnDefs": [{
+                "targets": [4],
+                "searchable": false,
+                "orderable": false,
+
+
+            }],
+
+            scrollY: 500,
+            scrollCollapse: true,
+            "pageLength": 25,
+
+            dom: 'Bfrtip',
+            "buttons": [
+                {
+                    extend: 'copy',
+                    footer: false,
+                    exportOptions: {
+                        columns: [0, 1, 2, 3]
+                    }
+                },
+
+                {
+                    extend: 'csv',
+                    footer: false,
+                    exportOptions: {
+                        columns: [0, 1, 2, 3]
+                    }
+                },
+
+                {
+                    extend: 'excel',
+                    footer: false,
+                    exportOptions: {
+                        columns: [0, 1, 2, 3]
+                    }
+                },
+
+                {
+                    extend: 'pdf',
+                    footer: false,
+                    exportOptions: {
+                        columns: [0, 1, 2, 3]
+                    }
+                },
+
+                {
+                    extend: 'print',
+                    footer: false,
+                    exportOptions: {
+                        columns: [0, 1, 2, 3]
+                    }
+                }
+
+            ],
+
+            "oLanguage": {
+                "sSearch": "Bul"
+            }
+
+
+        }).column(0).search();
+
+    });
+
+
+</script>
