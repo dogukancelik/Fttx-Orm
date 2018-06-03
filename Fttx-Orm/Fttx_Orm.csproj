@@ -224,6 +224,7 @@
     <Compile Include="Controllers\OdfsController.cs" />
     <Compile Include="Controllers\Process\IsPlanTarihsController.cs" />
     <Compile Include="Controllers\Process\IsTursController.cs" />
+    <Compile Include="Controllers\Process\RoleSurecsController.cs" />
     <Compile Include="Controllers\Process\SurecHareketsController.cs" />
     <Compile Include="Controllers\Process\SurecIsTablosusController.cs" />
     <Compile Include="Controllers\Process\SurecsController.cs" />
@@ -457,6 +458,11 @@
     <Content Include="Views\IsTurs\Details.cshtml" />
     <Content Include="Views\IsTurs\Edit.cshtml" />
     <Content Include="Views\IsTurs\Index.cshtml" />
+    <Content Include="Views\RoleSurecs\Create.cshtml" />
+    <Content Include="Views\RoleSurecs\Delete.cshtml" />
+    <Content Include="Views\RoleSurecs\Details.cshtml" />
+    <Content Include="Views\RoleSurecs\Edit.cshtml" />
+    <Content Include="Views\RoleSurecs\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

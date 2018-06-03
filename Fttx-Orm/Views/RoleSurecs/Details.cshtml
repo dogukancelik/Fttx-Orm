@@ -1,0 +1,43 @@
+﻿@model Fttx_Orm.Models.Process.RoleSurec
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>RoleSurec</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RoleId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RoleId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SurecId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SurecId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsId)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.RoleSurecId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

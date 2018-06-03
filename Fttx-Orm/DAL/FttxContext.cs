@@ -73,5 +73,7 @@ namespace Fttx_Orm.DAL
         public System.Data.Entity.DbSet<Fttx_Orm.Models.Process.SurecSira> SurecSiras { get; set; }
 
         public System.Data.Entity.DbSet<Fttx_Orm.Models.Process.IsTur> IsTurs { get; set; }
+
+        public System.Data.Entity.DbSet<Fttx_Orm.Models.Process.RoleSurec> RoleSurecs { get; set; }
     }
 }
