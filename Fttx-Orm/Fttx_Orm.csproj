@@ -148,6 +148,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\FttxCRM.mdf" />
+    <Content Include="App_Data\FttxCRM_log.ldf">
+      <DependentUpon>FttxCRM.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\AdminLTE.min.css" />
     <Content Include="Content\blue.css" />
     <Content Include="Content\blue.png" />
@@ -460,9 +464,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

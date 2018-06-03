@@ -15,7 +15,7 @@ namespace Fttx_Orm
             using (Fttx_Orm.DAL.FttxContext db = new DAL.FttxContext())
             {
                 //Bu metod, eğer veritabanımız oluşturulmamış ise, oluşturulmasını sağlıyor.
-             //   db.Database.CreateIfNotExists();
+              // db.Database.CreateIfNotExists();
             }
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
