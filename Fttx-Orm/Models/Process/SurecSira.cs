@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Fttx_Orm.Models
+namespace Fttx_Orm.Models.Process
 {
-    public class Surec_Sira
+    public class SurecSira
     {
-        public int Proje_Id { get; set; }
-        public int Surec_Id { get; set; }
+        public int SurecSiraId { get; set; }
+        public int ProjeId { get; set; }
+        public int SurecId { get; set; }
         public int Sira { get; set; }
 
         public bool Durum { get; set; }

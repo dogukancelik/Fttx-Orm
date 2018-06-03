@@ -218,9 +218,15 @@
     <Compile Include="Controllers\DslamsController.cs" />
     <Compile Include="Controllers\FiberNodeBaglantisController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\Process\IsesController.cs" />
     <Compile Include="Controllers\KullanicisController.cs" />
     <Compile Include="Controllers\MsansController.cs" />
     <Compile Include="Controllers\OdfsController.cs" />
+    <Compile Include="Controllers\Process\IsPlanTarihsController.cs" />
+    <Compile Include="Controllers\Process\SurecHareketsController.cs" />
+    <Compile Include="Controllers\Process\SurecIsTablosusController.cs" />
+    <Compile Include="Controllers\Process\SurecsController.cs" />
+    <Compile Include="Controllers\Process\SurecSirasController.cs" />
     <Compile Include="Controllers\ProfilsController.cs" />
     <Compile Include="Controllers\ProjeController.cs" />
     <Compile Include="Controllers\RoleMenusController.cs" />
@@ -236,8 +242,9 @@
     <Compile Include="Models\fiber\Cati.cs" />
     <Compile Include="Models\fiber\BaglantiAdres.cs" />
     <Compile Include="Models\fiber\FiberNodeBaglanti.cs" />
-    <Compile Include="Models\Is_Plan_Tarih.cs" />
+    <Compile Include="Models\Process\IsPlanTarih.cs" />
     <Compile Include="Models\fiber\Odf.cs" />
+    <Compile Include="Models\Process\RoleSurec.cs" />
     <Compile Include="Models\Profil.cs" />
     <Compile Include="Models\RLC.cs" />
     <Compile Include="Global.asax.cs">
@@ -253,7 +260,7 @@
     <Compile Include="Models\DepoStok.cs" />
     <Compile Include="Models\Dslam.cs" />
     <Compile Include="Models\GetList.cs" />
-    <Compile Include="Models\Is.cs" />
+    <Compile Include="Models\Process\Is.cs" />
     <Compile Include="Models\Kullanici.cs" />
     <Compile Include="Models\Lokasyon.cs" />
     <Compile Include="Models\AllMenu.cs" />
@@ -267,10 +274,10 @@
     <Compile Include="Models\Proje.cs" />
     <Compile Include="Models\ProjeTip.cs" />
     <Compile Include="Models\Santral.cs" />
-    <Compile Include="Models\Surec_Hareket.cs" />
-    <Compile Include="Models\Surec_Is_Tablosu.cs" />
-    <Compile Include="Models\Surec_Olustur.cs" />
-    <Compile Include="Models\Surec_Sira.cs" />
+    <Compile Include="Models\Process\SurecHareket.cs" />
+    <Compile Include="Models\Process\SurecIsTablosu.cs" />
+    <Compile Include="Models\Process\Surec.cs" />
+    <Compile Include="Models\Process\SurecSira.cs" />
     <Compile Include="Models\fiber\UcNokta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -413,6 +420,36 @@
     <Content Include="Views\UcNoktas\Details.cshtml" />
     <Content Include="Views\UcNoktas\Edit.cshtml" />
     <Content Include="Views\UcNoktas\Index.cshtml" />
+    <Content Include="Views\Ises\Create.cshtml" />
+    <Content Include="Views\Ises\Delete.cshtml" />
+    <Content Include="Views\Ises\Details.cshtml" />
+    <Content Include="Views\Ises\Edit.cshtml" />
+    <Content Include="Views\Ises\Index.cshtml" />
+    <Content Include="Views\Surecs\Create.cshtml" />
+    <Content Include="Views\Surecs\Delete.cshtml" />
+    <Content Include="Views\Surecs\Details.cshtml" />
+    <Content Include="Views\Surecs\Edit.cshtml" />
+    <Content Include="Views\Surecs\Index.cshtml" />
+    <Content Include="Views\IsPlanTarihs\Create.cshtml" />
+    <Content Include="Views\IsPlanTarihs\Delete.cshtml" />
+    <Content Include="Views\IsPlanTarihs\Details.cshtml" />
+    <Content Include="Views\IsPlanTarihs\Edit.cshtml" />
+    <Content Include="Views\IsPlanTarihs\Index.cshtml" />
+    <Content Include="Views\SurecHarekets\Create.cshtml" />
+    <Content Include="Views\SurecHarekets\Delete.cshtml" />
+    <Content Include="Views\SurecHarekets\Details.cshtml" />
+    <Content Include="Views\SurecHarekets\Edit.cshtml" />
+    <Content Include="Views\SurecHarekets\Index.cshtml" />
+    <Content Include="Views\SurecIsTablosus\Create.cshtml" />
+    <Content Include="Views\SurecIsTablosus\Delete.cshtml" />
+    <Content Include="Views\SurecIsTablosus\Details.cshtml" />
+    <Content Include="Views\SurecIsTablosus\Edit.cshtml" />
+    <Content Include="Views\SurecIsTablosus\Index.cshtml" />
+    <Content Include="Views\SurecSiras\Create.cshtml" />
+    <Content Include="Views\SurecSiras\Delete.cshtml" />
+    <Content Include="Views\SurecSiras\Details.cshtml" />
+    <Content Include="Views\SurecSiras\Edit.cshtml" />
+    <Content Include="Views\SurecSiras\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
