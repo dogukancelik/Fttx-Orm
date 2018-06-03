@@ -4,12 +4,13 @@
     ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
 
-    string[] actions = new string[5];
+    string[] actions = new string[6];
     actions[0] = "Index";
     actions[1] = "Create";
     actions[2] = "Delete";
     actions[3] = "Detail";
     actions[4] = "Edit";
+    actions[5] = "-";
 }
 
 <h2>Tüm Menüler</h2>
@@ -49,7 +50,11 @@
                             function gonder(id) {
                                 document.getElementById('SubMenuId').value = id;
                                 if (id == 0) {
-                                    $('#00').text("-- Seçiniz ! --");
+                                    $('#z').children("span").text("-- Seçiniz! --");
+                                    $('#z > #ActionName').attr("value", "");
+                                    $('#z > .options > #ActionNameOP').html("");
+                                    $('#z > .options > #ActionNameOP').append("<li id='' onclick='gonder4(\"-- Seçiniz! --\")'>-- Seçiniz! --</li>");
+                                    $("#z > .options > #ActionNameOP").append("<li id='-' onclick='gonder4(\"-\")' >-</li>");
                                  
                                 }
                              
@@ -170,14 +175,14 @@
                 @*@Html.EditorFor(model => model.ActionName, new { htmlAttributes = new { @class = "form-control" } })*@
                 <div tabindex="0" class="Jdropdown" style="z-index:1;" id='z'>
                     <div class="dropdown-a"></div>
-                    <span id="00">-- Seçiniz ! --</span>
+                    <span>-- Seçiniz ! --</span>
 
                     <input id="ActionName" name="ActionName" type="hidden" value=""/>
                     <input type="text" placeholder="Ara" /><i class="fa fa-search"></i>
                     <div class="options">
 
                         <ul id="ActionNameOP">
-                            <li onclick="none('#ActionNameOP')">-- Seçiniz ! --</li>
+                            <li>-- Seçiniz ! --</li>
                             @*@foreach (var item in ViewBag.getAll)
                             {
                                 <li id="@item.Value.ToString()" onclick="gonder4('@item.ToString()')">@item.Value.ToString()</li>
@@ -187,7 +192,7 @@
                         <script>
                             function gonder4(id) {
                                 document.getElementById('ActionName').value = id;
-                                $("#z").children('span:first').text($("#" + id).text());
+                                $("#z").children('span:first').text(id);
                                 $("#z").blur();
                             }
 
