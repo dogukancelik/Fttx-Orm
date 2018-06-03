@@ -219,6 +219,7 @@
     <Compile Include="Controllers\MsansController.cs" />
     <Compile Include="Controllers\OdfsController.cs" />
     <Compile Include="Controllers\Process\IsPlanTarihsController.cs" />
+    <Compile Include="Controllers\Process\IsTursController.cs" />
     <Compile Include="Controllers\Process\SurecHareketsController.cs" />
     <Compile Include="Controllers\Process\SurecIsTablosusController.cs" />
     <Compile Include="Controllers\Process\SurecsController.cs" />
@@ -240,6 +241,7 @@
     <Compile Include="Models\fiber\FiberNodeBaglanti.cs" />
     <Compile Include="Models\Process\IsPlanTarih.cs" />
     <Compile Include="Models\fiber\Odf.cs" />
+    <Compile Include="Models\Process\IsTur.cs" />
     <Compile Include="Models\Process\RoleSurec.cs" />
     <Compile Include="Models\Profil.cs" />
     <Compile Include="Models\RLC.cs" />
@@ -446,6 +448,11 @@
     <Content Include="Views\SurecSiras\Details.cshtml" />
     <Content Include="Views\SurecSiras\Edit.cshtml" />
     <Content Include="Views\SurecSiras\Index.cshtml" />
+    <Content Include="Views\IsTurs\Create.cshtml" />
+    <Content Include="Views\IsTurs\Delete.cshtml" />
+    <Content Include="Views\IsTurs\Details.cshtml" />
+    <Content Include="Views\IsTurs\Edit.cshtml" />
+    <Content Include="Views\IsTurs\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -1,0 +1,35 @@
+﻿@model Fttx_Orm.Models.Process.IsTur
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>IsTur</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IsTuru)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsTuru)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.status)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IsTurId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

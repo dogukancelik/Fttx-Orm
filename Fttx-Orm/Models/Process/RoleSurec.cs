@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Fttx_Orm.Models.Process
 {
-    class RoleSurec
+   public class RoleSurec
     {
         public int RoleSurecId { get; set; }
         public int RoleId { get; set; }
