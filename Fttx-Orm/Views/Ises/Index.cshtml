@@ -96,9 +96,9 @@
                     @Html.DisplayFor(modelItem => item.Aciklama)
                 </td>
                 <td>
-                    @Html.ActionLink("Düzenle", "Edit", new { id = item.Id }) |
-                    @Html.ActionLink("Detay", "Details", new { id = item.Id }) |
-                    @Html.ActionLink("Sil", "Delete", new { id = item.Id })
+                    <a href="#@Html.DisplayFor(modelItem => item.Id)"><i class="fa fa-arrow-circle-o-left"></i> Geri at</a> 
+                        &nbsp;&nbsp; | &nbsp;&nbsp; 
+                    <a href="#@Html.DisplayFor(modelItem => item.Id)">İlerlet <i class="fa fa-arrow-circle-o-right"></i></a>
                 </td>
             </tr>
         }
