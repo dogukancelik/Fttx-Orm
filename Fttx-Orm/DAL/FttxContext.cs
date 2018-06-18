@@ -55,10 +55,7 @@ namespace Fttx_Orm.DAL
         public DbSet<BaglantiTip> BaglantiTips { get; set; }
 
         public System.Data.Entity.DbSet<Fttx_Orm.Models.fiber.UcNokta> UcNoktas { get; set; }
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
-        }
+       
 
         public System.Data.Entity.DbSet<Fttx_Orm.Models.Process.Is> Iss { get; set; }
 
@@ -75,5 +72,9 @@ namespace Fttx_Orm.DAL
         public System.Data.Entity.DbSet<Fttx_Orm.Models.Process.IsTur> IsTurs { get; set; }
 
         public System.Data.Entity.DbSet<Fttx_Orm.Models.Process.RoleSurec> RoleSurecs { get; set; }
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+        }
     }
 }

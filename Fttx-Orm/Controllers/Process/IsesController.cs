@@ -10,6 +10,7 @@ using System.Web.Mvc;
 using Fttx_Orm.DAL;
 using Fttx_Orm.Models.Process;
 
+
 namespace Fttx_Orm.Controllers.Process
 {
     public class IsesController : Controller
@@ -38,8 +39,11 @@ namespace Fttx_Orm.Controllers.Process
         }
 
         // GET: Ises/Create
+        [HttpGet]
         public ActionResult Create()
         {
+
+            ViewBag.TurId = new SelectList(db.Database.SqlQuery<Fttx_Orm.Models.Process.IsTur>("select * from IsTur where status=1").ToList(), "IsTurId", "IsTuru");
             return View();
         }
 
@@ -72,6 +76,7 @@ namespace Fttx_Orm.Controllers.Process
             {
                 return HttpNotFound();
             }
+            ViewBag.TurId = new SelectList(db.Database.SqlQuery<Fttx_Orm.Models.Process.IsTur>("select * from IsTur where status=1").ToList(), "IsTurId", "IsTuru", @is.TurId);
             return View(@is);
         }
 
@@ -88,6 +93,8 @@ namespace Fttx_Orm.Controllers.Process
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
+
+            ViewBag.TurId = new SelectList(db.Database.SqlQuery<Fttx_Orm.Models.Process.IsTur>("select * from IsTur where status=1").ToList(), "IsTurId", "IsTuru",@is.TurId);
             return View(@is);
         }
 

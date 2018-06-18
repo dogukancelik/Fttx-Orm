@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using System.Data.Entity;
 using System.Web.Security;
 
 namespace Fttx_Orm
@@ -15,10 +16,12 @@ namespace Fttx_Orm
             using (Fttx_Orm.DAL.FttxContext db = new DAL.FttxContext())
             {
                 //Bu metod, eğer veritabanımız oluşturulmamış ise, oluşturulmasını sağlıyor.
-              // db.Database.CreateIfNotExists();
+                 db.Database.CreateIfNotExists();
+           
             }
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+           
         }
 
         protected void Application_End(object sender, EventArgs e)
