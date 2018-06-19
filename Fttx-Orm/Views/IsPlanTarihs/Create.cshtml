@@ -157,8 +157,9 @@
     string so = "";
     foreach (var st in (new Fttx_Orm.DAL.FttxContext()).IsPlanTarihs.ToList())
     {
-
-        so = so + "{\"id\":" + st.IsId + st.SurecId + ",\"title\":\"" + ((new Fttx_Orm.DAL.FttxContext()).Iss.Single(u => u.Id == Convert.ToInt64(st.IsId)).Name) + " / " + ((new Fttx_Orm.DAL.FttxContext()).Surecs.Single(p => p.SurecId == Convert.ToInt64(st.SurecId)).SurecAdi) + "\",\"start\":\"" + st.BaslangicTarih + "\", \"end\":\"" + st.BitisTarih + "\"},";
+        int a = int.Parse(st.IsId);
+        so = so + "{\"id\":" + st.IsId + st.SurecId + ",\"title\":\"" + ((new Fttx_Orm.DAL.FttxContext()).Iss.Single(u => u.Id == a).Name) + " / " + ((new Fttx_Orm.DAL.FttxContext()).Surecs.Single(p => p.SurecId == a).SurecAdi) + "\",\"start\":\"" + st.BaslangicTarih + "\", \"end\":\"" + st.BitisTarih + "\"},";
+       
     }
 
 }
@@ -172,8 +173,10 @@
                 <div id='external-events'>
                     <div id='external-events-listing'>
                         <h4>Process Event</h4>
-                               <div id="" class='fc-event'></div>
-                        <p style="display:none">
+                        @foreach (Fttx_Orm.Models.Process.SurecSira item in (new Fttx_Orm.DAL.FttxContext()).SurecSiras.ToList()) {
+                         <div id="@item.ProjeId+_+@item.SurecId" class='fc-event'>@(new Fttx_Orm.DAL.FttxContext().Iss.Single(u => u.Id == item.ProjeId).Name)/@(new Fttx_Orm.DAL.FttxContext().Surecs.Single(u=>u.SurecId==item.SurecId).SurecAdi)</div>
+                        }
+                         <p style="display:none">
                             <input type='checkbox' id='drop-remove' checked='checked' />
                             <label for='drop-remove'>remove after drop</label>
                         </p>
@@ -255,8 +258,26 @@
                     el.data('event', { title: event.title, id: event.id, stick: true });
                 }
             },
-            events: [@so.Length <= 0 ? "" : so.Substring(0, so.Length - 1)]
+            events: [@Html.Raw(so.Substring(0, so.Length - 1).ToString())]
         });
+
+    var isEventOverDiv = function(x, y) {
+
+        var external_events = $( '#external-events' );
+        var offset = external_events.offset();
+        offset.right = external_events.width() + offset.left;
+        offset.bottom = external_events.height() + offset.top;
+
+        // Compare
+        if (x >= offset.left
+            && y >= offset.top
+            && x <= offset.right
+            && y <= offset .bottom) { return true; }
+        return false;
+
+    }
+
+    
     });
 
     function gel(){
@@ -276,8 +297,8 @@
 
             var t=d.getDate()+"."+(d.getMonth()+1)+"."+d.getFullYear();
 
-           
-            data[i] = [eventsFromCalendar[i]["id"], eventsFromCalendar[i]["title"], t,c,@Convert.ToInt16(HttpContext.Current.User.Identity.Name)];
+
+            data[i] = [eventsFromCalendar[i]["id"], eventsFromCalendar[i]["title"], t,c,1];
 
             $("#planingData").attr("value",data);
             $("#planingData2").attr("value",ss);

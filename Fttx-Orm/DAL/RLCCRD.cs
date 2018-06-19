@@ -21,7 +21,7 @@ namespace Fttx_Orm.DAL
             }
             else if (rlc.IsauthAuthenticated)
             {
-                int a = Convert.ToSByte(rlc.UserId);
+                int a = Convert.ToInt16(rlc.UserId);
                 bool roluser = db.RolUsers.Any(p => p.UserId ==a  && p.RoleId == 5);
 
                 if (roluser)

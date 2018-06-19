@@ -19,7 +19,7 @@ namespace Fttx_Orm.Controllers.Process
         // GET: SurecIsTablosus
         public async Task<ActionResult> Index()
         {
-            return View(await db.SurecIsTablosus.ToListAsync());
+            return View(await db.SurecSiras.ToListAsync());
         }
 
         // GET: SurecIsTablosus/Details/5

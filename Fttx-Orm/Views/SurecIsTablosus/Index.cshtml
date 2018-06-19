@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Fttx_Orm.Models.Process.SurecIsTablosu>
+﻿@model IEnumerable<Fttx_Orm.Models.Process.SurecSira>
 
 @{
     ViewBag.Title = "Index";
@@ -51,10 +51,10 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.IsId)
+               Proje Adı
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.SurecId)
+              Süreç Adı
             </th>
             <th></th>
         </tr>
@@ -62,7 +62,7 @@
     <tfoot>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.IsId)
+                @Html.DisplayNameFor(model => model.ProjeId)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.SurecId)
@@ -72,18 +72,21 @@
     </tfoot>
     <tbody>
         @foreach (var item in Model)
-            {
+        {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.IsId)
+                   
+                  @(new Fttx_Orm.DAL.FttxContext().Iss.Single(u => u.Id ==item.ProjeId ).Name)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.SurecId)
+                    @(new Fttx_Orm.DAL.FttxContext().Surecs.Single(u => u.SurecId == item.SurecId).SurecAdi)
                 </td>
                 <td>
-                    @Html.ActionLink("Düzenle", "Edit", new { id = item.SurecIsTablosuId }) |
-                    @Html.ActionLink("Detay", "Details", new { id = item.SurecIsTablosuId }) |
-                    @Html.ActionLink("Sil", "Delete", new { id = item.SurecIsTablosuId })
+                  
+                    @Html.ActionLink("Düzenle", string.Format("Edit/{0}", item.SurecId),"SurecSiras",null,null) |
+                    @Html.ActionLink("Detay", string.Format("Detail/{0}", item.SurecId), "SurecSiras", null, null) |
+                    @Html.ActionLink("Sil", string.Format("Delete/{0}", item.SurecId), "SurecSiras", null, null)
+                  
                 </td>
             </tr>
         }

@@ -40,6 +40,8 @@ namespace Fttx_Orm.Controllers.Process
         // GET: SurecSiras/Create
         public ActionResult Create()
         {
+            ViewBag.ProjeId = new SelectList(db.Database.SqlQuery<Fttx_Orm.Models.Process.Is>("select * from dbo.[Is] where Aciklama=1").ToList(), "Id", "Name");
+            ViewBag.SurecId = new SelectList(db.Database.SqlQuery<Fttx_Orm.Models.Process.Surec>("select * from dbo.[Surec]").ToList(), "SurecId", "SurecAdi");
             return View();
         }
 
@@ -56,7 +58,8 @@ namespace Fttx_Orm.Controllers.Process
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-
+            ViewBag.ProjeId = new SelectList(db.Database.SqlQuery<Fttx_Orm.Models.Process.Is>("select * from dbo.[Is] where Aciklama=1").ToList(), "Id", "Name");
+            ViewBag.SurecId = new SelectList(db.Database.SqlQuery<Fttx_Orm.Models.Process.Surec>("select * from dbo.[Surec]").ToList(), "SurecId", "SurecAdi");
             return View(surecSira);
         }
 
@@ -72,6 +75,9 @@ namespace Fttx_Orm.Controllers.Process
             {
                 return HttpNotFound();
             }
+            ViewBag.ProjeId = new SelectList(db.Iss, "Id", "Name",surecSira.ProjeId);
+            ViewBag.SurecId = new SelectList(db.Surecs, "SurecId", "SurecAdi", surecSira.ProjeId);
+
             return View(surecSira);
         }
 
@@ -88,6 +94,9 @@ namespace Fttx_Orm.Controllers.Process
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
+            ViewBag.ProjeId = new SelectList(db.Iss, "Id", "Name", surecSira.ProjeId);
+            ViewBag.SurecId = new SelectList(db.Surecs, "SurecId", "SurecAdi", surecSira.ProjeId);
+
             return View(surecSira);
         }
 
