@@ -82,11 +82,9 @@
                     @(new Fttx_Orm.DAL.FttxContext().Surecs.Single(u => u.SurecId == item.SurecId).SurecAdi)
                 </td>
                 <td>
-                  
-                    @Html.ActionLink("Düzenle", string.Format("Edit/{0}", item.SurecId),"SurecSiras",null,null) |
-                    @Html.ActionLink("Detay", string.Format("Detail/{0}", item.SurecId), "SurecSiras", null, null) |
-                    @Html.ActionLink("Sil", string.Format("Delete/{0}", item.SurecId), "SurecSiras", null, null)
-                  
+                    <a href="#"><i class="fa fa-arrow-circle-left"></i> Geri al</a>
+                    &nbsp;&nbsp; | &nbsp;&nbsp;
+                    <a href="#">İlerlet <i class="fa fa-arrow-circle-right"></i></a>
                 </td>
             </tr>
         }
