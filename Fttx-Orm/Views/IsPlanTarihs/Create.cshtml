@@ -276,10 +276,11 @@
 
             var t=d.getDate()+"."+(d.getMonth()+1)+"."+d.getFullYear();
 
-            data[i] = [eventsFromCalendar[i]["id"], eventsFromCalendar[i]["title"], t,c,@Convert.ToInt16(HttpContext.Current.User.Identity.Name))}];
+           
+            data[i] = [eventsFromCalendar[i]["id"], eventsFromCalendar[i]["title"], t,c,@Convert.ToInt16(HttpContext.Current.User.Identity.Name)];
 
-
-        $("#planingData").attr("value",data);
-        $("#planingData2").attr("value",ss);
+            $("#planingData").attr("value",data);
+            $("#planingData2").attr("value",ss);
+        }
     }
 </script>
