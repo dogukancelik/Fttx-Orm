@@ -27,7 +27,7 @@ namespace Fttx_Orm.Controllers
             //string UserName = kullanici.UserName;
             //string Password = kullanici.Password;
             // bool rm = kullanici.RememberME;
-            Kullanici data = db.Kullanicilar.Where(p => p.UserName == kullanici.UserName).FirstOrDefault(c => c.Password == kullanici.Password);
+          Kullanici data = db.Kullanicilar.Where(p => p.UserName == kullanici.UserName).FirstOrDefault(c => c.Password == kullanici.Password);
 
             if (data !=null)
             {

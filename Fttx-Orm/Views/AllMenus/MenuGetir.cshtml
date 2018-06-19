@@ -3,7 +3,7 @@
 
     Fttx_Orm.DAL.FttxContext db = new Fttx_Orm.DAL.FttxContext();
 
-    int KID = Convert.ToInt16(HttpContext.Current.User.Identity.Name);//Convert.ToInt32(Session["Kullanici"].ToString());
+   int KID = Convert.ToInt16(HttpContext.Current.User.Identity.Name);//Convert.ToInt32(Session["Kullanici"].ToString());
     bool roluser = db.RolUsers.Any(p => p.UserId == KID && p.RoleId == 5); //.Database.SqlQuery<int>("Select RoleId from RoleUser where KullaniciId="+KID).ToList();
 
 }
@@ -18,7 +18,7 @@
     
 
     <ul class="treeview-menu">
-        @foreach (var item in db.Database.SqlQuery<Fttx_Orm.Models.AllMenu>("SELECT * FROM AllMenu WHERE SubMenuId = 0 AND ActionName != 'Edit' ").ToList())
+        @foreach (var item in db.Database.SqlQuery<Fttx_Orm.Models.AllMenu>("SELECT * FROM AllMenu WHERE SubMenuId = 0 AND ActionName not in ('Edit','Delete','Detail') ").ToList())
         {
 
             if (item.SubMenuId == 0)
@@ -37,7 +37,7 @@
                         <i class="fa fa-circle"></i>@item.MenuName.ToString()
                     </a>
                     <ul class="treeview-menu">
-                        @foreach (var items in db.Database.SqlQuery<Fttx_Orm.Models.AllMenu>("SELECT * FROM AllMenu WHERE SubMenuId =" + item.MenuId + " AND ActionName != 'Edit'").ToList())
+                        @foreach (var items in db.Database.SqlQuery<Fttx_Orm.Models.AllMenu>("SELECT * FROM AllMenu WHERE SubMenuId =" + item.MenuId + " AND ActionName not in ('Edit','Delete','Detail')").ToList())
                         {
                             <li class="@{try
                                          {

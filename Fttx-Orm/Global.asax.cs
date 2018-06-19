@@ -13,12 +13,13 @@ namespace Fttx_Orm
     {
         protected void Application_Start()
         {
-            using (Fttx_Orm.DAL.FttxContext db = new DAL.FttxContext())
-            {
-                //Bu metod, eğer veritabanımız oluşturulmamış ise, oluşturulmasını sağlıyor.
-                 db.Database.CreateIfNotExists();
+            //using (Fttx_Orm.DAL.FttxContext db = new DAL.FttxContext())
+            //{
+            //    //Bu metod, eğer veritabanımız oluşturulmamış ise, oluşturulmasını sağlıyor.
+            //     db.Database.CreateIfNotExists();
            
-            }
+            //}
+            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<Fttx_Orm.DAL.FttxContext>());
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
            
